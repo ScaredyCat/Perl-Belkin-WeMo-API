@@ -209,6 +209,7 @@ my $wemo = WebService::Belkin::WeMo::Device->new(name => 'Desk Lamp', db => '/tm
 
 print "Name = " . $wemo->getFriendlyName() . "\n";
 print "On/Off = " . $wemo->isSwitchOn() . "\n"; 
+print "Signal = " . $wemo->getSignalStrength() . "\n";
 
 print "Turning off...\n";
 $wemo->off();
@@ -224,6 +225,7 @@ This library allows basic control of the switches (turning on/off and getting de
 
 =head1 METHODS
 
+    * getSignalStrength - Get the device's wifi signal strength.
     * getFriendlyName - Get the name of the switch
     * isSwitchOn - Returns true (1) or false (0)
     * on - Turn switch on
