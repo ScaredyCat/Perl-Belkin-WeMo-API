@@ -81,6 +81,18 @@ sub new {
 
 }
 
+sub getSignalStrength() {
+        my $self = shift;
+
+        my $resp = $self->{_basicService}->postaction("GetSignalStrength");
+        if ( $resp->getstatuscode() == 200 ) {
+                return $resp->getargumentlist()->{'SignalStrength'};
+        }
+        else {
+                croak "Got status code " . $resp->getstatuscode() . "!\n";
+        }
+}
+
 sub getFriendlyName() {
 
 	my $self = shift;
